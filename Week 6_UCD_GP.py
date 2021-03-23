@@ -10,6 +10,7 @@ print(sales['weekly_sales'].mean())
 # Print the median of weekly_sales
 print(sales['weekly_sales'].median())
 
+
 # Print the maximum of the date column
 print(sales['date'].max())
 
@@ -24,23 +25,6 @@ def iqr(column):
 
 # Print IQR of the temperature_c column
 print(sales['temperature_c'].agg(iqr))
-
-
-# A custom IQR function
-def iqr(column):
-    return column.quantile(0.75) - column.quantile(0.25)
-
-# Update to print IQR of temperature_c, fuel_price_usd_per_l, & unemployment
-print(sales[['temperature_c', 'fuel_price_usd_per_l', 'unemployment']].agg(iqr))
-
-# Import NumPy and create custom IQR function
-import numpy as np
-def iqr(column):
-    return column.quantile(0.75) - column.quantile(0.25)
-
-# Update to print IQR and median of temperature_c, fuel_price_usd_per_l, & unemployment
-print(sales[["temperature_c", "fuel_price_usd_per_l", "unemployment"]].agg([iqr, np.median]))
-
 
 # Sort sales_1_1 by date
 sales_1_1 = sales_1_1.sort_values('date')
@@ -84,10 +68,4 @@ print(dept_counts_sorted)
 # Get the proportion of departments of each number and sort
 dept_props_sorted = store_depts["department"].value_counts(sort=True, normalize=True)
 print(dept_props_sorted)
-
-
-
-
-
-
 
