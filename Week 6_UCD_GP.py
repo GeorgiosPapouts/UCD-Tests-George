@@ -245,7 +245,6 @@ plt.legend(["conventional", "organic"])
 # Show the plot
 plt.show()
 
-
-
+#SHOW
 
 
