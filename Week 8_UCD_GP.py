@@ -471,3 +471,152 @@ plt.show()
 
 
 
+# Change this scatter plot to arrange the plots in rows instead of columns
+sns.relplot(x="absences", y="G3",
+            data=student_data,
+            kind="scatter",
+            col="study_time", row='study_time')
+
+# Show plot
+plt.show()
+
+
+# Adjust further to add subplots based on family support
+sns.relplot(x="G1", y="G3",
+            data=student_data,
+            kind="scatter",
+            col="schoolsup",
+            col_order=["yes", "no"], row='famsup', row_order=['yes', 'no'])
+
+# Show plot
+plt.show()
+
+
+
+# Import Matplotlib and Seaborn
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Create scatter plot of horsepower vs. mpg
+sns.relplot(x="horsepower", y="mpg",
+            data=mpg, kind="scatter",
+            size="cylinders", hue='cylinders')
+
+# Show plot
+plt.show()
+
+
+# Import Matplotlib and Seaborn
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Create a scatter plot of acceleration vs. mpg
+sns.relplot(x='acceleration', y='mpg', data=mpg, kind='scatter', style='origin', hue='origin')
+
+# Show plot
+plt.show()
+
+
+# Make the shaded area show the standard deviation
+sns.relplot(x="model_year", y="mpg",
+            data=mpg, kind="line", ci='sd')
+
+# Show plot
+plt.show()
+
+
+# Import Matplotlib and Seaborn
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Add markers and make each line have the same style
+sns.relplot(x="model_year", y="horsepower",
+            data=mpg, kind="line",
+            ci=None, style="origin",
+            hue="origin", markers=True, dashes=False)
+
+# Show plot
+plt.show()
+
+
+# Create column subplots based on age category
+sns.catplot(y="Internet usage", data=survey_data,
+            kind="count", col='Age Category')
+
+# Show plot
+plt.show()
+
+
+# Create a bar plot of interest in math, separated by gender
+sns.catplot(x='Gender', y='Interested in Math', data=survey_data, kind='bar')
+
+# Show plot
+plt.show()
+
+
+# Turn off the confidence intervals
+sns.catplot(x="study_time", y="G3",
+            data=student_data,
+            kind="bar",
+            order=["<2 hours",
+                   "2 to 5 hours",
+                   "5 to 10 hours",
+                   ">10 hours"], ci=None)
+
+# Show plot
+plt.show()
+
+
+# Specify the category ordering
+study_time_order = ["<2 hours", "2 to 5 hours",
+                    "5 to 10 hours", ">10 hours"]
+
+# Create a box plot and set the order of the categories
+sns.catplot(x='study_time', y='G3', data=student_data, kind='box', order=study_time_order)
+
+# Show plot
+plt.show()
+
+
+# Create a box plot with subgroups and omit the outliers
+sns.catplot(x='internet', y='G3', data=student_data, kind='box', hue='location', sym='')
+
+# Show plot
+plt.show()
+
+
+# Set the whiskers at the min and max values
+sns.catplot(x="romantic", y="G3",
+            data=student_data,
+            kind="box",
+            whis=[0, 100])
+
+# Show plot
+plt.show()
+
+# Remove the lines joining the points
+sns.catplot(x="famrel", y="absences",
+            data=student_data,
+            kind="point",
+            capsize=0.2, join=False)
+
+# Show plot
+plt.show()
+
+
+
+# Import median function from numpy
+from numpy import median
+
+# Plot the median number of absences instead of the mean
+sns.catplot(x="romantic", y="absences",
+			data=student_data,
+            kind="point",
+            hue="school",
+            ci=None,
+            estimator=median)
+
+# Show plot
+plt.show()
+
+
